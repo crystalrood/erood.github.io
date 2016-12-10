@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Data Science for Political and Social Phenomena">
+    <meta name="author" content="Chris Albon">
+    <link rel="icon" href="../favicon.ico">
+
+    <title>Module Basics - Python</title>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../theme/js/jquery.min.js"><\/script>')
+    </script>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../theme/css/bootstrap.css" />
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" type="text/css" href="../theme/css/ie10-viewport-bug-workaround.css" />
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="../theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../theme/css/notebooks.css" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+     <link href="http://chrisalbon.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Chris Albon Full RSS Feed" />        
+
+    <meta name="tags" content="Basics" />
+
+
+</head>
+
+<body>
+
+    <div class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="..">Chris Albon</a>
+            </div>
+            <div class="navbar-collapse collapse" id="searchbar">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../pages/about.html">About Chris</a></li>
+                            <li><a href="https://github.com/chrisalbon">GitHub</a></li>
+                            <li><a href="https://twitter.com/chrisalbon">Twitter</a></li>
+                            <li><a href="https://www.linkedin.com/in/chrisralbon">LinkedIn</a></li>
+                            <li><a href="https://pinboard.in/u:chrisalbon">Pinboard</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data Science<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="..#Python">Python</a></li>
+                            <li><a href="..#R_Stats">R Stats</a></li>
+                            <li><a href="..#Regex">Regex</a></li>
+                            <li><a href="..#Command_Line">Command Line</a></li>
+                            <li><a href="..#Project_Juypter">Project Juypter</a></li>
+                            <li><a href="..#SQL">SQL</a></li>
+                            <li><a href="..#Mathematics">Mathematics</a></li>
+                            <li><a href="..#Javascript">Javascript</a></li>
+                            <li><a href="..#Probability">Probability</a></li>
+                            <li><a href="..#Frequentist_Statistics">Frequentist Statistics</a></li>
+                            <li><a href="..#Bayesian_Statistics">Bayesian Statistics</a></li>
+                            <li><a href="..#Machine_Learning">Machine Learning</a></li>
+                            <li><a href="..#GitHub">GitHub</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="../feeds/all.rss.xml">RSS Feed</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="..#Articles">Articles</a></li>
+                            <li><a href="..#Projects">Projects</a></li>
+                            <li><a href="http://popily.com">Popily</a></li>
+                            <li><a href="http://partiallyderivative.com">Partially Derivative</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena">Data Science for Political and Social Phenomena</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+                <form class="navbar-form" action="../search.html" onsubmit="return validateForm(this.elements['q'].value);">
+                    <div class="form-group" style="display:inline;">
+                        <div class="input-group" style="display:table;">
+                            <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search Here" required autocomplete="off" autofocus="autofocus" type="text">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <!-- end of header section -->
+    <div class="container">
+<!-- <div class="alert alert-warning" role="alert">
+    Did you find this page useful? Please do me a quick favor and <a href="#" class="alert-link">endorse me for data science on LinkedIn</a>.
+</div> -->
+<section id="content" class="body">
+    <header>
+    <h1>
+      Module Basics
+    </h1>
+<ol class="breadcrumb">
+    <li>
+        <time class="published" datetime="2016-05-01T12:00:00-07:00">
+            01 May 2016
+        </time>
+    </li>
+    <li>Python</li>
+    <li>Basics</li>
+</ol>
+</header>
+
+<div class="highlight"><pre><span></span><span class="c1"># Import the module sys</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># Import just the sqrt function from the module math</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># Import the pandas module as the alias pd</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># View all the names in a module</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">pd</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>[&#39;Categorical&#39;,
+ &#39;DataFrame&#39;,
+ &#39;DateOffset&#39;,
+ &#39;DateRange&#39;,
+ &#39;DatetimeIndex&#39;,
+ &#39;ExcelFile&#39;,
+ &#39;ExcelWriter&#39;,
+ &#39;Expr&#39;,
+ &#39;Float64Index&#39;,
+ &#39;HDFStore&#39;,
+ &#39;Index&#39;,
+ &#39;Int64Index&#39;,
+ &#39;LooseVersion&#39;,
+ &#39;MultiIndex&#39;,
+ &#39;NaT&#39;,
+ &#39;Panel&#39;,
+ &#39;Panel4D&#39;,
+ &#39;Period&#39;,
+ &#39;PeriodIndex&#39;,
+ &#39;Series&#39;,
+ &#39;SparseArray&#39;,
+ &#39;SparseDataFrame&#39;,
+ &#39;SparseList&#39;,
+ &#39;SparsePanel&#39;,
+ &#39;SparseSeries&#39;,
+ &#39;SparseTimeSeries&#39;,
+ &#39;Term&#39;,
+ &#39;TimeGrouper&#39;,
+ &#39;TimeSeries&#39;,
+ &#39;Timestamp&#39;,
+ &#39;WidePanel&#39;,
+ &#39;__builtins__&#39;,
+ &#39;__cached__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__docformat__&#39;,
+ &#39;__file__&#39;,
+ &#39;__initializing__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__path__&#39;,
+ &#39;__version__&#39;,
+ &#39;_np_version&#39;,
+ &#39;_np_version_under1p6&#39;,
+ &#39;_np_version_under1p7&#39;,
+ &#39;_np_version_under1p8&#39;,
+ &#39;_sparse&#39;,
+ &#39;algos&#39;,
+ &#39;bdate_range&#39;,
+ &#39;compat&#39;,
+ &#39;computation&#39;,
+ &#39;concat&#39;,
+ &#39;core&#39;,
+ &#39;crosstab&#39;,
+ &#39;cut&#39;,
+ &#39;date_range&#39;,
+ &#39;datetime&#39;,
+ &#39;datetools&#39;,
+ &#39;describe_option&#39;,
+ &#39;eval&#39;,
+ &#39;ewma&#39;,
+ &#39;ewmcorr&#39;,
+ &#39;ewmcov&#39;,
+ &#39;ewmstd&#39;,
+ &#39;ewmvar&#39;,
+ &#39;ewmvol&#39;,
+ &#39;expanding_apply&#39;,
+ &#39;expanding_corr&#39;,
+ &#39;expanding_corr_pairwise&#39;,
+ &#39;expanding_count&#39;,
+ &#39;expanding_cov&#39;,
+ &#39;expanding_kurt&#39;,
+ &#39;expanding_max&#39;,
+ &#39;expanding_mean&#39;,
+ &#39;expanding_median&#39;,
+ &#39;expanding_min&#39;,
+ &#39;expanding_quantile&#39;,
+ &#39;expanding_skew&#39;,
+ &#39;expanding_std&#39;,
+ &#39;expanding_sum&#39;,
+ &#39;expanding_var&#39;,
+ &#39;factorize&#39;,
+ &#39;fama_macbeth&#39;,
+ &#39;get_dummies&#39;,
+ &#39;get_option&#39;,
+ &#39;get_store&#39;,
+ &#39;groupby&#39;,
+ &#39;hashtable&#39;,
+ &#39;index&#39;,
+ &#39;infer_freq&#39;,
+ &#39;info&#39;,
+ &#39;io&#39;,
+ &#39;isnull&#39;,
+ &#39;json&#39;,
+ &#39;lib&#39;,
+ &#39;load&#39;,
+ &#39;lreshape&#39;,
+ &#39;match&#39;,
+ &#39;melt&#39;,
+ &#39;merge&#39;,
+ &#39;msgpack&#39;,
+ &#39;notnull&#39;,
+ &#39;np&#39;,
+ &#39;offsets&#39;,
+ &#39;ols&#39;,
+ &#39;option_context&#39;,
+ &#39;options&#39;,
+ &#39;ordered_merge&#39;,
+ &#39;pandas&#39;,
+ &#39;parser&#39;,
+ &#39;period_range&#39;,
+ &#39;pivot&#39;,
+ &#39;pivot_table&#39;,
+ &#39;plot_params&#39;,
+ &#39;pnow&#39;,
+ &#39;qcut&#39;,
+ &#39;read_clipboard&#39;,
+ &#39;read_csv&#39;,
+ &#39;read_excel&#39;,
+ &#39;read_fwf&#39;,
+ &#39;read_gbq&#39;,
+ &#39;read_hdf&#39;,
+ &#39;read_html&#39;,
+ &#39;read_json&#39;,
+ &#39;read_msgpack&#39;,
+ &#39;read_pickle&#39;,
+ &#39;read_sql&#39;,
+ &#39;read_stata&#39;,
+ &#39;read_table&#39;,
+ &#39;reset_option&#39;,
+ &#39;rolling_apply&#39;,
+ &#39;rolling_corr&#39;,
+ &#39;rolling_corr_pairwise&#39;,
+ &#39;rolling_count&#39;,
+ &#39;rolling_cov&#39;,
+ &#39;rolling_kurt&#39;,
+ &#39;rolling_max&#39;,
+ &#39;rolling_mean&#39;,
+ &#39;rolling_median&#39;,
+ &#39;rolling_min&#39;,
+ &#39;rolling_quantile&#39;,
+ &#39;rolling_skew&#39;,
+ &#39;rolling_std&#39;,
+ &#39;rolling_sum&#39;,
+ &#39;rolling_var&#39;,
+ &#39;rolling_window&#39;,
+ &#39;save&#39;,
+ &#39;scatter_matrix&#39;,
+ &#39;set_eng_float_format&#39;,
+ &#39;set_option&#39;,
+ &#39;show_versions&#39;,
+ &#39;sparse&#39;,
+ &#39;stats&#39;,
+ &#39;to_datetime&#39;,
+ &#39;to_msgpack&#39;,
+ &#39;to_pickle&#39;,
+ &#39;to_timedelta&#39;,
+ &#39;tools&#39;,
+ &#39;tseries&#39;,
+ &#39;tslib&#39;,
+ &#39;unique&#39;,
+ &#39;util&#39;,
+ &#39;value_counts&#39;,
+ &#39;value_range&#39;,
+ &#39;version&#39;,
+ &#39;wide_to_long&#39;]
+</pre></div>
+    <aside>
+    <div class="bug-reporting__panel">
+        <h3>Find an error or bug? Have a suggestion?</h3>
+        <p>Everything on this site is avaliable on GitHub. Head on over and <a href='https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena/issues/new'>submit an issue.</a> You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+    </div>
+    </aside>
+</section>
+
+    </div>
+    <!-- start of footer section -->
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">
+                <center>Copyright &copy; Chris Albon,
+                    <time datetime="2016">2016</time>.
+                </center>
+            </p>
+        </div>
+    </footer>
+
+    <!-- This jQuery line finds any span that contains code highlighting classes and then selects the parent <pre> tag and adds a border. This is done as a workaround to visually distinguish the code inputs and outputs -->
+    <script>
+        $( ".hll, .n, .c, .err, .k, .o, .cm, .cp, .c1, .cs, .gd, .ge, .gr, .gh, .gi, .go, .gp, .gs, .gu, .gt, .kc, .kd, .kn, .kp, .kr, .kt, .m, .s, .na, .nb, .nc, .no, .nd, .ni, .ne, .nf, .nl, .nn, .nt, .nv, .ow, .w, .mf, .mh, .mi, .mo, .sb, .sc, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss, .bp, .vc, .vg, .vi, .il" ).parent( "pre" ).css( "border", "1px solid #DEDEDE" );
+    </script>
+
+    <!-- Load Google Analytics -->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-66582-32', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End of Google Analytics -->
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../theme/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../theme/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>
