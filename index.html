@@ -1,95 +1,417 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<script src="https://d3js.org/d3.v2.min.js?2.9.3"></script>
-<style>
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <h1 class="index-page-title">Data Science for Political and Social Phenomena</h1>
+</div>
+<div class="homepage-blurb row">
+    <div class="col-sm-12">
+        <p>I am a <a href="{{ SITEURL }}/pages/about.html">data scientist and quantitative political scientist</a>. I specialize in the technical and organizational aspects of applying data science to political and social issues.</p>
+        <p>Years ago I noticed a gap in the existing data literature. On one side was data science, with roots in mathematics and computer science. On the other side were the social sciences, with hard-earned expertise modeling and predicting complex human behavior. The motivation for this site and ongoing book project is to bridge that gap: to create a practical guide to applying data science to political and social phenomena.</p>
+    </div>
+</div>
 
-.link {
-  stroke: #aaa;
-}
+<div class="row" id="Articles">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Articles</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Articles' %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-.node text {
+<div class="row" id="Python">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Python</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Basics</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Python' and 'Basics' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Data Wrangling</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Python' and 'Data Wrangling' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Data Visualization</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Python' and 'Data Visualization' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Web Scraping</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Python' and 'Web Scraping' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Other</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Python' and 'Other' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" id="R_Stats">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">R Stats</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Basics</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'R Stats' and 'Basics' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Data Wrangling</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'R Stats' and 'Data Wrangling' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Data Visualization</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'R Stats' and 'Data Visualization' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Other</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'R Stats' and 'Other' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-cursos:pointer;
-}
+<div class="row" id="Regex">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Regex</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Regex' %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-.node circle{
-stroke:#fff;
-stroke-width:3px;
-fill:#555;
-}
+<div class="row" id="Machine_Learning">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Machine Learning</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {% for article in articles if article.category == 'Machine Learning' %}
+          <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+        {% else %}
+          <li>Coming soon.</li>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
 
-</style>
-<body>
-<script>
+<div class="row" id="Command_Line">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Command Line</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {% for article in articles if article.category == 'Command Line' %}
+          <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+        {% else %}
+          <li>Coming soon.</li>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
 
-var width = 960,
-    height = 500
-var color = d3.scale.category20();
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+<div class="row" id="Javascript">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Javascript</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Javascript' %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-var force = d3.layout.force()
-    .gravity(.05)
-    .distance(100)
-    .charge(-100)
-    .size([width, height]);
+<div class="row" id="Projects">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Projects</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Small Projects</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Projects' and 'Small Projects' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-d3.csv("my.csv", function(json) {
-  //array of nodes
-  var nodes = [];
-  //array of links
-  var links = [];
-  json.forEach(function(d){
-    
-    if (nodes.indexOf(d.Source.trim()) <0){
-      //sorce node not there so add
-      nodes.push(d.Source.trim())
-    }
-    if (nodes.indexOf(d.Target.trim()) <0){
-      //target node not there so add
-      nodes.push(d.Target.trim())
-    }
-    links.push({source:nodes.indexOf(d.Source.trim()), target:nodes.indexOf(d.Target.trim())})
-  });
-  nodes = nodes.map(function(n){
-    return {name:n}
-  })
 
-  force
-      .nodes(nodes)
-      .links(links)
-      .start();
 
-  var link = svg.selectAll(".link")
-      .data(links)
-    .enter().append("line")
-      .attr("class", "link")
-    .style("stroke-width", function(d) { return 1; });
+<div class="row" id="Project_Juypter">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Project Jupyter</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Jupyter' %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-  var node = svg.selectAll(".node")
-      .data(nodes)
-    .enter().append("g")
-      .attr("class", "node")
-      .call(force.drag);
 
-  node.append("circle")
-      .attr("r","5");
+<div class="row" id="SQL">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">SQL</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'SQL' %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-  node.append("text")
-      .attr("dx", 12)
-      .attr("dy", ".35em")
-      .attr("fill", function(d){return color(d.name)})
-      .text(function(d) { return d.name });
+<div class="row" id="Mathematics">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Mathematics</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Mathematics' %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-  force.on("tick", function() {
-    link.attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+<div class="row" id="Probability">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Probability</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Probability' %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-  });
-});
+<div class="row" id="Frequentist_Statistics">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Frequentist Statistics</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Frequentist Statistics' %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-</script>
+<div class="row" id="Bayesian_Statistics">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Bayesian Statistics</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Bayesian Statistics' %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="GitHub">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">GitHub</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'GitHub'  %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
