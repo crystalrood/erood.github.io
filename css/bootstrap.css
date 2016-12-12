@@ -4588,9 +4588,10 @@ fieldset[disabled] .navbar-default .btn-link:hover,
 fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
+/*edit navbar header*/
 .navbar-inverse {
-  background-color: rgba(19, 48, 132, 0.85);
-  border-color: #3256a7;
+  background-color: rgba(25, 202, 95, 0.91);
+  border-color: #0a0a0a;
 }
 .navbar-inverse .navbar-brand {
   color: rgb(255, 255, 255);
