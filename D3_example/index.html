@@ -34,7 +34,7 @@ var force = d3.layout.force()
     .distance(100)
     .charge(-100)
     .size([width, height]);
-
+//only showing board members who are associated with >=2 companies to trim list down, concat name/age to get unique-ish identifier
 d3.csv("my1.csv", function(json) {
   //array of nodes
   var nodes = [];
