@@ -24,8 +24,8 @@ fill:#555;
 <body>
 <script>
 
-var width = 960,
-    height = 500
+var width = 1060,
+    height = 800
 var color = d3.scale.category20();
 var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -33,7 +33,7 @@ var svg = d3.select("body").append("svg")
 
 var force = d3.layout.force()
     .gravity(.05)
-    .distance(1000)
+    .distance(300)
     .charge(-100)
     .size([width, height]);
 //only showing board members who are associated with >=2 companies to trim list down, concat name/age to get unique-ish identifier
