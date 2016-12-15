@@ -46,7 +46,7 @@ var force = d3.layout.force()
     .nodes(d3.values(nodes))
     .links(links)
     .size([width, height])
-    .linkDistance(2)
+    .linkDistance(10)
     .charge(-300)
     .on("tick", tick)
     .start();
@@ -58,7 +58,7 @@ var svg = d3.select("body").append("svg")
 // build the arrow.
 svg.append("svg:defs").selectAll("marker")
     .data(["end"])      // Different link/path types can be defined here
-  .enter().append("svg:marker")    // This section adds in the arrows
+  //.enter().append("svg:marker")    // This section adds in the arrows
     .attr("id", String)
     .attr("viewBox", "0 -5 10 10")
     .attr("refX", 15)
