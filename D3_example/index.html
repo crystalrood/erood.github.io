@@ -34,7 +34,7 @@ var svg = d3.select("body").append("svg")
 var force = d3.layout.force()
     .gravity(.05)
     .distance(200)
-    .charge(-100)
+    .charge(100)
     .size([width, height]);
 //only showing board members who are associated with >=2 companies to trim list down, concat name/age to get unique-ish identifier
 d3.csv("my1.csv", function(json) {
